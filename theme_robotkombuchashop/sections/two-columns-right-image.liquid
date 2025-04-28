@@ -1,0 +1,73 @@
+{% schema %}
+{
+  "name": "HTML Left - Image Right",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "html",
+      "id": "html_content",
+      "label": "HTML Content",
+      "default": "<h2>Your heading here</h2><p>This is your custom HTML block.</p>"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS Class",
+      "default": "image-right"
+    }
+  ],
+  "presets": [
+    {
+      "name": "HTML Left - Image Right",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="two-col-section {{ section.settings.custom_class }}">
+  <div class="columns-container">
+  <div class="columns">
+    <div class="col text-col">
+      {{ section.settings.html_content }}
+    </div>
+    <div class="col image-col">
+      {% if section.settings.image %}
+        <img src="{{ section.settings.image | image_url: width: 700 }}" alt="Image" />
+      {% endif %}
+    </div>
+  </div>
+  </div>
+</section>
+
+<style>
+  .two-col-section .columns-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+  }
+
+  .two-col-section .col {
+    flex: 1 1 48%;
+  }
+
+  .two-col-section .image-col img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .two-col-section .columns-container {
+      flex-direction: column;
+    }
+  }
+</style>

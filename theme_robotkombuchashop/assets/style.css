@@ -1,0 +1,21 @@
+.our-brand-logo .brand-logo .brand-img a.logo-url span.logo-image img {
+  filter: opacity(10)!important;
+}
+#our-products .section-ptb{
+  padding-top: 0;
+}
+.collection-info{
+  display: none;
+}
+.single-product-wrap .product-content a.title{
+  white-space: inherit;
+}
+@media (max-width: 450px){
+#product-grid .st-col-item .single-product-wrap .content-block .title{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 155px;
+  display: inline-block; 
+}
+}

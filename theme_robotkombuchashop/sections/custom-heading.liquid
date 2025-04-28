@@ -1,0 +1,39 @@
+{% schema %}
+{
+  "name": "Custom Heading",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "Welcome to Our Store"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading Level",
+      "default": "h2",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" },
+        { "value": "h3", "label": "H3" }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "heading_class",
+      "label": "CSS Classes",
+      "default": "text-4xl font-bold text-center my-6"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Heading"
+    }
+  ]
+}
+{% endschema %}
+
+<{{ section.settings.heading_tag }} class="{{ section.settings.heading_class }}">
+  {{ section.settings.heading_text }}
+</{{ section.settings.heading_tag }}>
